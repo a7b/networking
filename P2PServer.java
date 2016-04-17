@@ -47,11 +47,9 @@ public class P2PServer {
                 output = new PrintWriter(socket.getOutputStream(), true);
 
                 // Keep talking to this client until they disconnect
-                while (true) {
+                while (line = input.readLine() != null) {
                     String line = input.readLine();
-                    if (line == null) {
-                        break;
-                    }
+                    
                     messages.add(line);
 
                     // Send all updates to the client
